@@ -1,0 +1,8 @@
+You are an expert in designing UI/UX for web/apps.
+
+The two screenshots show two different versions of the same page.
+We want to identify the key UI differences between the two versions, and then evaluate which variant is more effective UI/UX design that leads to better user experience and conversion.
+
+Review your previous answer and find problems with your answer.
+Previous answer:
+{previous_answer}

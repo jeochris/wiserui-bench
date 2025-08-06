@@ -1,0 +1,12 @@
+You are an expert in designing UI/UX for web/apps.
+
+The two screenshots show two different versions of the same page.
+We want to identify the key UI differences between the two versions, and then evaluate which variant is more effective UI/UX design that leads to better user experience and conversion.
+
+You should
+(1) Think step by step about the preliminary knowledge to answer the question, deconstruct the problem as completely as possible down to necessary sub-questions.
+(2) With the aim of helping answer the original question, try to answer the sub-questions
+(3) Give your final answer according to the sub-questions and sub-answers.
+
+You should end your answer with following the format (No bold, etc):
+More effective: <First/Second>
