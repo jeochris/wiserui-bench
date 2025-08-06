@@ -4,7 +4,9 @@
 Do MLLMs Capture How Interfaces Guide User Behavior? A Benchmark for Multimodal UI/UX Design Understanding
 </h2>
 
-**Authors:** **Jaehyun Jeon**, Min Soo Kim, Jang Han Yoon, Sumin Shim, Yejin Choi, Hanbin Kim, Youngjae Yu
+<p align="center">
+Authors: <strong>Jaehyun Jeon</strong>, Min Soo Kim, Jang Han Yoon, Sumin Shim, Yejin Choi, Hanbin Kim, Youngjae Yu
+</p align="center">
 
 <p align="center">
 <a href='https://arxiv.org/abs/2505.05026'><img src='https://img.shields.io/badge/Arxiv-2505.05026-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a>
@@ -29,6 +31,26 @@ bash execute.sh
   - Input your OpenAI/Claude API key if needed.
 - All the open-source models we used are supported by `vllm`.
 
+## Code Structure
+
+```
+inference/
+├── prompts_task1/  # Prompts for Task 1 (selection)
+├── prompts_task2/  # Prompts for Task 2 (explanation)
+├── task.py         # entry-point on WiserUI-Bench
+├── methods.py      # handling prompting methods
+└── VLM.py          # model inference wrapper
+```
+
+You can also use your custom prompts, placing in prompts folder.
+
+## Supported Models
+
+We support inference with the following models currently:
+- Proprietary : o1, GPT-4o, Claude 3.5 Sonnet
+- Open-source : Qwen-2.5-VL (7B, 32B), InternVL-2.5 (8B, 38B), LLaVA-NeXT 7B, LLaVA-OneVision 7B
+
+You can also use your own models by modifying the provided code.
 
 ## Citation
 If you find our project useful, please cite:
