@@ -1,20 +1,45 @@
 # WiserUI-Bench
 
 <h2 align="center">
-  Do MLLMs Capture How Interfaces Guide User Behavior?<br>
-  A Benchmark for Multimodal UI/UX Design Understanding
+Do MLLMs Capture How Interfaces Guide User Behavior? A Benchmark for Multimodal UI/UX Design Understanding
 </h2>
+
+**Authors:** **Jaehyun Jeon**, Min Soo Kim, Jang Han Yoon, Sumin Shim, Yejin Choi, Hanbin Kim, Youngjae Yu
+
+<p align="center">
+<a href='https://arxiv.org/abs/2505.05026'><img src='https://img.shields.io/badge/Arxiv-2505.05026-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a>
+<a href='https://huggingface.co/datasets/jeochris/WiserUI-Bench'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue'></a>
+</p>
 
 ![main_figure](figure/main.png)
 
-## Abstract
-User interface (UI) design goes beyond visuals, guiding user behavior and overall user experience (UX). Strategically crafted interfaces, for example, can boost sign-ups and drive business sales, underscoring the shift toward UI/UX as a unified design concept. While recent studies have explored UI quality evaluation using Multimodal Large Language Models (MLLMs), they largely focus on surface-level features, overlooking behavior-oriented aspects. To fill this gap, we introduce WiserUI-Bench, a novel benchmark for assessing models' multimodal understanding of UI/UX design. It includes 300 diverse real-world UI image pairs, each consisting of two design variants A/B-tested at scale by actual companies, where one was empirically validated to steer more user actions than the other. Each pair is accompanied one or more of 684 expert-curated rationales that capture key factors behind each winning design's effectiveness, spanning diverse cognitive dimensions of UX. Our benchmark supports two core tasks: (1) selecting the more effective UI/UX design by predicting the A/B test verified winner and (2) assessing how well a model, given the winner, can explain its effectiveness in alignment with expert reasoning. Experiments across several MLLMs show that current models exhibit limited nuanced reasoning about UI/UX design and its behavioral impact. We believe our work will foster research in UI/UX understanding and enable broader applications such as behavior-aware interface optimization.
+We introduce **WiserUI-Bench**, a benchmark for evaluating MLLMs’ understanding of user behavior-oriented UI/UX design using real-world A/B-tested interfaces and expert-curated key rationales. Results show current models struggle with nuanced reasoning about UI/UX design and its behavioral impact. For further details, please check out our [paper](https://arxiv.org/abs/2505.05026).
 
-## Dataset
-- `images`: 300 UI image pairs. Each pair includes `win.png` (winner version in actual A/B testing results) and `lose.png` (the opposite).
-- `WiserUI_Bench.json`: Metadata for 300 UI image pairs. Includes source website link, categories, and expert-curated key rationales.
+## Inference
+We provide an inference framework for (1) UI/UX design selection and (2) UI/UX design rationale alignment task on [WiserUI-Bench](https://huggingface.co/datasets/jeochris/WiserUI-Bench).
 
-## License
+```
+pip install -r requirements.txt
+cd inference
+bash execute.sh
+```
 
-This dataset is released under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.  
-It may be used for **non-commercial research purposes**, with proper attribution. Any derivatives must carry the same license.
+- For `execute.sh`,
+  - Input your model / method / task number / gpu count based on your needs.
+  - Input your OpenAI/Claude API key if needed.
+- All the open-source models we used are supported by `vllm`.
+
+
+## Citation
+If you find our project useful, please cite:
+```
+@misc{jeon2025mllmscaptureinterfacesguide,
+      title={Do MLLMs Capture How Interfaces Guide User Behavior? A Benchmark for Multimodal UI/UX Design Understanding}, 
+      author={Jaehyun Jeon and Min Soo Kim and Jang Han Yoon and Sumin Shim and Yejin Choi and Hanbin Kim and Youngjae Yu},
+      year={2025},
+      eprint={2505.05026},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.05026}, 
+}
+```
