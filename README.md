@@ -52,6 +52,10 @@ We support inference with the following models currently:
 
 You can also use your own models by modifying the provided code.
 
+## TODO  
+- [] Release evaluation code
+- [] Release mechanism supporting custom A/B-tested UI datasets 
+
 ## Citation
 If you find our project useful, please cite:
 ```
