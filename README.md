@@ -5,7 +5,7 @@ Do MLLMs Capture How Interfaces Guide User Behavior? A Benchmark for Multimodal 
 </h2>
 
 <p align="center">
-Authors: <strong>Jaehyun Jeon</strong>, Min Soo Kim, Jang Han Yoon, Sumin Shim, Yejin Choi, Hanbin Kim, Youngjae Yu
+Authors: <strong>Jaehyun Jeon</strong>, Min Soo Kim, Jang Han Yoon, Sumin Shim, Yejin Choi, Hanbin Kim, Dae Hyun Kim, Youngjae Yu
 </p align="center">
 
 <p align="center">
@@ -15,10 +15,10 @@ Authors: <strong>Jaehyun Jeon</strong>, Min Soo Kim, Jang Han Yoon, Sumin Shim, 
 
 ![main_figure](figure/main.png)
 
-We introduce **WiserUI-Bench**, a benchmark for evaluating MLLMs’ understanding of user behavior-oriented UI/UX design using real-world A/B-tested interfaces and expert-curated key rationales. Results show current models struggle with nuanced reasoning about UI/UX design and its behavioral impact. For further details, please check out our [paper](https://arxiv.org/abs/2505.05026).
+We introduce **WiserUI-Bench**, a benchmark for evaluating MLLMs’ understanding of user behavior-oriented UI/UX design using real-world A/B-tested interfaces and expert-curated key interpretations. Results show current models struggle with nuanced reasoning about UI/UX design and its behavioral impact. For further details, please check out our [paper](https://arxiv.org/abs/2505.05026).
 
 ## Inference
-We provide an inference framework for (1) UI/UX design selection and (2) UI/UX design rationale alignment task on [WiserUI-Bench](https://huggingface.co/datasets/jeochris/WiserUI-Bench).
+We provide an inference framework for (1) UI/UX design selection and (2) UI/UX design interpretation task on [WiserUI-Bench](https://huggingface.co/datasets/jeochris/WiserUI-Bench).
 
 ```
 pip install -r requirements.txt
@@ -36,7 +36,7 @@ bash execute.sh
 ```
 inference/
 ├── prompts_task1/  # Prompts for Task 1 (selection)
-├── prompts_task2/  # Prompts for Task 2 (explanation)
+├── prompts_task2/  # Prompts for Task 2 (interpretation)
 ├── task.py         # entry-point on WiserUI-Bench
 ├── methods.py      # handling prompting methods
 └── VLM.py          # model inference wrapper
@@ -59,10 +59,10 @@ You can also use your own models by modifying the provided code.
 ## Citation
 If you find our project useful, please cite:
 ```
-@misc{jeon2025mllmscaptureinterfacesguide,
+@misc{jeon2026mllmscaptureinterfacesguide,
       title={Do MLLMs Capture How Interfaces Guide User Behavior? A Benchmark for Multimodal UI/UX Design Understanding}, 
-      author={Jaehyun Jeon and Min Soo Kim and Jang Han Yoon and Sumin Shim and Yejin Choi and Hanbin Kim and Youngjae Yu},
-      year={2025},
+      author={Jaehyun Jeon and Min Soo Kim and Jang Han Yoon and Sumin Shim and Yejin Choi and Hanbin Kim and Dae Hyun Kim and Youngjae Yu},
+      year={2026},
       eprint={2505.05026},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
