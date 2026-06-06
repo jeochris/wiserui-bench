@@ -1,6 +1,7 @@
 # inference
 tqdm
 anthropic
+openai
 vllm
 transformers
 

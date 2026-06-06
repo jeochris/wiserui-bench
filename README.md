@@ -78,10 +78,34 @@ inference/
 ├── task.py              # Entry-point
 ├── methods.py           # Prompting methods
 └── VLM.py               # Model inference wrapper
+
+eval/
+├── task1_eval.py        # Task 1 scoring: AA / CA metrics + dimension breakdowns
+├── task2_align_check.py # Task 2 step 1: GPT-4o alignment check (requires --api-key)
+└── task2_eval.py        # Task 2 step 2: law-level and data-wise scoring
+```
+
+## Evaluation
+
+After running inference, evaluate results with:
+
+```bash
+# Task 1: AA / CA metrics
+python eval/task1_eval.py --results results_task1 --data WiserUI_Bench.json
+
+# Task 2: alignment check (calls GPT-4o — requires an OpenAI API key)
+python eval/task2_align_check.py \
+    --api-key YOUR_OPENAI_KEY \
+    --models gpt_4o o1 qwen2_5_vl_7b \
+    --methods zero_shot \
+    --results results_task2 --data WiserUI_Bench.json
+
+# Task 2: law-level and data-wise scoring
+python eval/task2_eval.py --results results_task2 --data WiserUI_Bench.json
 ```
 
 ## TODO
-- [ ] Release evaluation code
+- [x] Release evaluation code
 
 ## Citation
 
