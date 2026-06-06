@@ -3,9 +3,6 @@ import os
 import argparse
 
 
-PROPRIETARY_MODELS = ['claude_3_5', 'gpt_4o', 'o1']
-
-
 def load_metadata(path):
     with open(path) as f:
         data = json.load(f)
@@ -14,16 +11,11 @@ def load_metadata(path):
 
 def get_file_path(results_dir, model, method, ordering):
     base = f'{method}_{ordering[0]}_{ordering[1]}'
-    if model in PROPRIETARY_MODELS:
-        fname = f'{base}.json'
-    else:
-        fname = f'{base}_real_answer.json'
-    return os.path.join(results_dir, model, fname)
+    return os.path.join(results_dir, model, f'{base}.json')
 
 
-def extract_answer(item, model):
-    key = 'only_answer' if model in PROPRIETARY_MODELS else 'real_answer'
-    ans = item.get(key, '')
+def extract_answer(item):
+    ans = item.get('only_answer', '')
     ans = ans.split('\n')[0].split('(')[0]
     ans = ans.strip('* ').strip('<> ').strip('Version ').strip('version ')
     return ans
@@ -139,7 +131,7 @@ def run_eval(results_dir, metadata_path, output_path):
 
                     for item in items:
                         idx = item['index']
-                        ans = extract_answer(item, model)
+                        ans = extract_answer(item)
 
                         if ans not in ['First', 'Second']:
                             errors.append(f'{fpath} index={idx}: {repr(ans)}')
