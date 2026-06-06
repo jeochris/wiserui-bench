@@ -1,5 +1,10 @@
+# inference
 tqdm
-datasets
 anthropic
 vllm
 transformers
+
+# dataset download & preprocessing
+requests
+Pillow
+opencv-python

@@ -2,7 +2,6 @@ import json
 import os
 from tqdm import tqdm
 import sys
-from datasets import load_dataset
 
 from methods import METHODS
 
@@ -187,9 +186,11 @@ else:
     GPU_COUNT = 1
 
 TASK_FOLDER = f'results_task{TASK}'
-ds = load_dataset("jeochris/WiserUI-Bench", split='test')
 
-method = METHODS(MODEL, TASK, METHOD, ds, API_KEY, GPU_COUNT)
+with open("../WiserUI_Bench.json") as f:
+    ds = json.load(f)
+
+method = METHODS(MODEL, TASK, METHOD, API_KEY, GPU_COUNT)
 
 print(f'Using model: {MODEL}, method: {METHOD}, moderation round for MAD: {ROUND_FOR_MAD}, task: {TASK}')
 
@@ -197,7 +198,7 @@ os.makedirs(TASK_FOLDER, exist_ok=True)
 if not os.path.exists(f'{TASK_FOLDER}/{MODEL.replace("-","_")}'):
     os.makedirs(f'{TASK_FOLDER}/{MODEL.replace("-","_")}')
 
-for folder in tqdm(range(0, len(ds))): ####
+for folder in tqdm(range(0, len(ds))):  ####
     for file in [('lose', 'win'), ('win', 'lose')]: ####
         if TASK == 2 and file == ('win', 'lose'):
             continue

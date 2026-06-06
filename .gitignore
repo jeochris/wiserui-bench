@@ -1,1 +1,13 @@
 __pycache__/
+*.pyc
+*.pyo
+
+# downloaded images (run dataset/download_images.py to generate)
+images/
+
+# inference outputs
+results_task*/
+
+# environment
+.env
+*.env

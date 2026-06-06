@@ -1,12 +1,11 @@
 from VLM import VLM
 
 class METHODS:
-    def __init__(self, model, task, method, ds, api_key=None, gpu_count=None):
+    def __init__(self, model, task, method, api_key=None, gpu_count=None):
         self.model = model
         self.task = task
         self.method = method
         self.api_key = api_key
-        self.ds = ds
 
         if method in ['zero_shot', 'cocot', 'ddcot']:
             self.prompt_path = f'prompts_task{task}/{method}.txt'
@@ -66,20 +65,20 @@ class METHODS:
             raise ValueError("Unsupported method.")
     
     def image_append(self, num, first_file, second_file):
-        img_path = self.ds[num][f'{first_file}']
-        img_path1 = self.ds[num][f'{second_file}']
-        
-        encoded_img = self.vlm_model.encode_image(img_path)
+        img_path  = f"../images/{num}/{first_file}.png"
+        img_path1 = f"../images/{num}/{second_file}.png"
+
+        encoded_img  = self.vlm_model.encode_image(img_path)
         encoded_img1 = self.vlm_model.encode_image(img_path1)
 
         d2c_image = []
         d2c_image.append(encoded_img)
         d2c_image.append(encoded_img1)
         return d2c_image
-    
+
     def image_append_vllm(self, num, first_file, second_file):
-        img_path = self.ds[num][f'{first_file}']
-        img_path1 = self.ds[num][f'{second_file}']
+        img_path  = f"../images/{num}/{first_file}.png"
+        img_path1 = f"../images/{num}/{second_file}.png"
 
         d2c_image = []
         d2c_image.append(img_path)
